@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "447269823038",
+    "project_id": "chat-badf8",
+    "storage_bucket": "chat-badf8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447269823038:android:026f74eb825d822232a76f",
+        "android_client_info": {
+          "package_name": "com.example.firebase_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447269823038-6mincrdqs82ghaocj181qghgh9vlcb23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebase_app",
+            "certificate_hash": "e07d2462364f5e74bb243b7244709dda35d98732"
+          }
+        },
+        {
+          "client_id": "447269823038-pu9koaf2q4qmg4lucqhd5j49guas5voe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX3FYnpLt0tHY_ZOl1iU5b4Zf4t-UIYag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447269823038-pu9koaf2q4qmg4lucqhd5j49guas5voe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
