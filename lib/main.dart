@@ -1,6 +1,9 @@
-import 'package:firebase_app/provider/auth/sign_in_provider.dart';
-import 'package:firebase_app/provider/auth/sign_up_provider.dart';
-import 'package:firebase_app/view/Splash/splash_page.dart';
+import 'package:firebase_app/provider/Home/home_provider.dart';
+import 'package:firebase_app/provider/add/add_product_provider.dart';
+import 'package:firebase_app/provider/auth/Sign%20In/sign_in_provider.dart';
+import 'package:firebase_app/provider/auth/Sign%20Up/sign_up_provider.dart';
+import 'package:firebase_app/provider/chat/chat_provider.dart';
+import 'package:firebase_app/view/pages/Splash/splash_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +15,9 @@ void main() async {
     providers: [
       ChangeNotifierProvider(create: (context) => SignUpProvider()),
       ChangeNotifierProvider(create: (context) => SignInProvider()),
+      ChangeNotifierProvider(create: (context) => HomeProvider()),
+      ChangeNotifierProvider(create: (context) => AddProductProvider()),
+      ChangeNotifierProvider(create: (context) => ChatProvider()),
     ],
     child: const MyApp(),
   ));

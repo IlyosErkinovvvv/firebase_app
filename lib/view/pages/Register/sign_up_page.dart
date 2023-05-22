@@ -1,7 +1,7 @@
 import 'package:firebase_app/core/extension/context_size.dart';
-import 'package:firebase_app/provider/auth/sign_up_provider.dart';
+import 'package:firebase_app/provider/auth/Sign%20Up/sign_up_provider.dart';
 import 'package:firebase_app/view/home_page.dart';
-import 'package:firebase_app/view/Register/sign_in_page.dart';
+import 'package:firebase_app/view/pages/Register/sign_in_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

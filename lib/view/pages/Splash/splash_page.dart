@@ -1,5 +1,5 @@
 import 'package:firebase_app/core/extension/context_size.dart';
-import 'package:firebase_app/view/Register/sign_up_page.dart';
+import 'package:firebase_app/view/pages/Register/sign_up_page.dart';
 import 'package:firebase_app/view/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -54,14 +54,16 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void chekUser() {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if (user != null) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const HomePage()));
-      } else {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const SignUpPage()));
-      }
-    });
+    FirebaseAuth.instance.authStateChanges().listen(
+      (User? user) {
+        if (user != null) {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomePage()));
+        } else {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const SignUpPage()));
+        }
+      },
+    );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:firebase_app/core/extension/context_size.dart';
-import 'package:firebase_app/provider/auth/sign_in_provider.dart';
+import 'package:firebase_app/provider/auth/Sign%20In/sign_in_provider.dart';
 import 'package:firebase_app/view/home_page.dart';
-import 'package:firebase_app/view/Register/sign_up_page.dart';
+import 'package:firebase_app/view/pages/Register/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -62,7 +62,7 @@ class _SignInPageState extends State<SignInPage> {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const SignUpPage()));
             },
-            child: const Text("Sign in"),
+            child: const Text("Sign up"),
           ),
           FloatingActionButton.extended(
               onPressed: () async {
@@ -76,7 +76,7 @@ class _SignInPageState extends State<SignInPage> {
                 });
               },
               label: !context.watch<SignInProvider>().isLoading
-                  ? const Text("Next")
+                  ? const Text("Kirish")
                   : const CircularProgressIndicator.adaptive()),
         ],
       ),
