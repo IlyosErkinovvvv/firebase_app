@@ -1,12 +1,18 @@
+import 'package:firebase_app/provider/auth/sign_in_provider.dart';
 import 'package:firebase_app/provider/auth/sign_up_provider.dart';
-import 'package:firebase_app/view/sign_up_page.dart';
+import 'package:firebase_app/view/Splash/splash_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (context) => SignUpProvider())],
+    providers: [
+      ChangeNotifierProvider(create: (context) => SignUpProvider()),
+      ChangeNotifierProvider(create: (context) => SignInProvider()),
+    ],
     child: const MyApp(),
   ));
 }
@@ -23,7 +29,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUpPage(),
+      home: SplashScreen(),
     );
   }
 }
