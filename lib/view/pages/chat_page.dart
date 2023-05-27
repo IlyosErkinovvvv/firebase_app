@@ -1,4 +1,3 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_app/core/extension/context_size.dart';
 import 'package:firebase_app/provider/chat/chat_provider.dart';
@@ -25,7 +24,16 @@ class _ChatPageState extends State<ChatPage> {
   Scaffold _scaffold(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          leading: const Icon(Icons.menu), title: const Text("Telegram")),
+        leading: Padding(
+          padding: EdgeInsets.only(left: context.width * 0.02),
+          child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_back)),
+        ),
+        title: const Text("Telegram"),
+      ),
       body: StreamBuilder(
         stream: context.read<ChatProvider>().messageStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -44,9 +52,7 @@ class _ChatPageState extends State<ChatPage> {
               );
             } else {
               return Padding(
-                padding: EdgeInsets.symmetric(
-                    vertical: context.height * 0.005,
-                    horizontal: context.width * 0.01),
+                padding: EdgeInsets.only(bottom: context.height * 0.08),
                 child: ListView.builder(
                   itemCount: data.length,
                   itemBuilder: (context, index) {
@@ -58,18 +64,23 @@ class _ChatPageState extends State<ChatPage> {
                                 FirebaseAuth.instance.currentUser!.uid
                             ? Alignment.centerRight
                             : Alignment.centerLeft,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: context.height * 0.01,
-                                horizontal: context.width * 0.03),
-                            child: Text(
-                              data[index]['message'],
-                              style: const TextStyle(color: Colors.white),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: context.width * 0.0,
+                              vertical: context.height * 0.005),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: context.height * 0.01,
+                                  horizontal: context.width * 0.03),
+                              child: Text(
+                                data[index]['message'],
+                                style: const TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
                         ),
@@ -97,10 +108,12 @@ class _ChatPageState extends State<ChatPage> {
                 child: TextFormField(
                   controller: context.watch<ChatProvider>().messageController,
                   decoration: InputDecoration(
-                    hintText: "Write message",
+                    hintText: " Write message ",
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: context.width * 0.05),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -110,10 +123,11 @@ class _ChatPageState extends State<ChatPage> {
               Expanded(
                 flex: 1,
                 child: IconButton(
-                    onPressed: () {
-                      context.read<ChatProvider>().writeMessage();
-                    },
-                    icon: const Icon(Icons.send)),
+                  onPressed: () {
+                    context.read<ChatProvider>().writeMessage();
+                  },
+                  icon: const Icon(Icons.send),
+                ),
               ),
             ],
           ),

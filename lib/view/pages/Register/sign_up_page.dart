@@ -52,6 +52,8 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             ),
             TextFormField(
+              obscureText: true,
+              keyboardType: TextInputType.emailAddress,
               controller: context.watch<SignUpProvider>().passwordController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(

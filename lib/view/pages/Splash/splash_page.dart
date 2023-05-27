@@ -14,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 5)).then((value) {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       chekUser();
     });
     super.initState();
@@ -57,8 +57,10 @@ class _SplashScreenState extends State<SplashScreen> {
     FirebaseAuth.instance.authStateChanges().listen(
       (User? user) {
         if (user != null) {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => const HomePage()),
+              (route) => false);
         } else {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const SignUpPage()));

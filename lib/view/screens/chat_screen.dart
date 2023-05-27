@@ -1,3 +1,4 @@
+import 'package:firebase_app/core/extension/context_size.dart';
 import 'package:firebase_app/view/pages/chat_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +12,23 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ElevatedButton(
+    return Scaffold(
+      appBar: AppBar(title: const Text("Chat screen")),
+      body: SizedBox(
+        width: double.infinity,
+        height: context.height * 0.08,
+        child: ElevatedButton(
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const ChatPage()));
           },
-          child: const Text("Chatga o'tish")),
+          child: const ListTile(
+            title: Text('Mobile'),
+            subtitle: Text('Flutter developer'),
+            trailing: Text('? ? ?'),
+          ),
+        ),
+      ),
     );
   }
 }
